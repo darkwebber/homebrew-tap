@@ -13,7 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Tap repository
-        run: brew tap darkwebber/tap "$GITHUB_WORKSPACE"
+        run: |
+          brew tap darkwebber/tap "$GITHUB_WORKSPACE"
+          brew trust --formula darkwebber/tap/fresnel darkwebber/tap/termtex
       - name: Style
         run: brew style --formula darkwebber/tap/fresnel
       - name: Audit
